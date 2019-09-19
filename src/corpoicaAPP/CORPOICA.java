@@ -6,7 +6,6 @@
 package corpoicaAPP;
 //import Modelo;
 
-import Modelo.CRUD;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Modelo.*;
@@ -28,13 +27,11 @@ public class CORPOICA {
         System.out.println("4<- Actualizar productos de control");
         System.out.println("5<- Eliminar productos de control");
         System.out.println("6<- SALIR");
-    }
-    
+    }  
     public static void main(String[] args) {
         Scanner entradaInt=  new Scanner(System.in);
         Scanner entradaStr=  new Scanner(System.in);
-        ArrayList<ControlPlaga> ControlPlagas = new ArrayList<>();
-        ArrayList<ControlFertilizante> ControlFertilizantes = new ArrayList<>();
+        ArrayList<ProductoControl> Productos = new ArrayList<>();
         
         int opcion;
         
@@ -45,19 +42,19 @@ public class CORPOICA {
             switch(opcion)
             {
                 case 1:
-                    CRUD.menuIngresoProductos(ControlPlagas,ControlFertilizantes,entradaInt, entradaStr);
+                    CRUD.menuIngresoProductos(Productos, entradaInt, entradaStr);
                     break;
                 case 2:
-                    CRUD.menuListarProductos(ControlPlagas, ControlFertilizantes, entradaInt, entradaStr);
+                    CRUD.menuListarProductos(Productos);
                     break;
                 case 3:
-                    CRUD.MenuBuscarProductos(ControlPlagas, ControlFertilizantes, entradaInt, entradaStr);
+                    CRUD.BuscarProducto(Productos, entradaInt, entradaStr);
                     break;
                 case 4:
-                    CRUD.ActualizarProductos(ControlPlagas, ControlFertilizantes, entradaInt, entradaStr);
+                    CRUD.ActualizarProductos(Productos, entradaInt, entradaStr);
                     break;
                 case 5:
-                    CRUD.EliminarProductos(ControlPlagas, ControlFertilizantes, entradaInt, entradaStr);
+                    CRUD.EliminarProductos(Productos, entradaInt, entradaStr);
                     break;
             }
         }while(opcion != 6);
